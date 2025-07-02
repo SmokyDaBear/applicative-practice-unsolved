@@ -1,3 +1,4 @@
+import { p } from "vitest/dist/index-5aad25c1.d.ts"; //There was a typo here, this didn't have the "...5c1.d.ts" it was just "...5c1.ts"
 import { data } from "../data/data";
 
 // SPACE DATA EXERCISE 11
@@ -7,6 +8,9 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
+  return data.planets
+    .filter((p) => p?.moonsCount < 10 || p?.moons === undefined) //tried p.moons.length first and kept getting error, then did .moonsCount thanks for adding it in :)
+    .map((p) => p.name);
 }
 
 // === TEST YOURSELF ===

@@ -4,9 +4,16 @@
  * Return example: 1902
  */
 
+import { maxBy } from "../exercises/e17.js";
+
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let counter = {};
+  for (let i of data.asteroids.map((a) => a.discoveryYear)) {
+    counter[i] = counter[i] ? counter[i] + 1 : 1;
+  }
+  return Number(maxBy(Object.entries(counter), (entry) => entry[1])[0]);
 }
 
 // === TEST YOURSELF ===
